@@ -1,0 +1,5 @@
+/Role-Equals*
+.build
+*.swp
+*.swo
+/*.conf
