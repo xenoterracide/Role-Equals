@@ -27,3 +27,10 @@ with qw(
 1;
 
 # ABSTRACT: dumb equatable
+
+=head1 DESCRIPTION
+
+Implements L<Interface::Equatable>. This implementation only checks to ensure
+that the "object" is blessed, and has the same reference.
+
+=cut
