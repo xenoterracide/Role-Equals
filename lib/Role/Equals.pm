@@ -1,15 +1,23 @@
 package Role::Equals;
-use 5.006;
+use 5.008;
 use strict;
 use warnings;
 use Moo::Role;
+use Scalar::Util qw( refaddr );
 
 # VERSION
 
 sub equals {
 	my ( $self, $obj ) = @_;
 
-	return;
+	my $ret
+		= ! blessed $obj                ? 0
+		: refaddr $self == refaddr $obj ? 1
+		:                                 undef
+		;
+
+	return $ret if defined $ret;
+	return; # do the right thing for list context
 }
 
 with qw(
